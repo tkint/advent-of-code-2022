@@ -1,0 +1,13 @@
+{
+  "name": "advent-of-code-2022",
+  "description": "Solutions of the advent-of-code 2022 edition",
+  "scripts": {
+    "test": "vitest"
+  },
+  "author": "tkint",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.9.3",
+    "vitest": "^0.25.3"
+  }
+}
