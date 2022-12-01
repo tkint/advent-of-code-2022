@@ -24,4 +24,4 @@ For each day, the folder contains the following :
 
 - `index.spec.ts` containing the solution
 - `input.txt` containing the given input
-- `README.md` describing the context and solution
+- `README.md` 
