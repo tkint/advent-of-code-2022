@@ -11,7 +11,7 @@ it('Day 02', () => {
   const guessingRounds = lines.map((line) => Round.fromGuessingLine(line));
 
   // Result for puzzle 1
-  const guessingTotalScore = sumOf(...guessingRounds.map((round) => round.score));
+  const guessingTotalScore = sumOf(guessingRounds.map((round) => round.score));
   console.log(guessingTotalScore);
 
   // Puzzle 2
@@ -19,7 +19,7 @@ it('Day 02', () => {
   const realRounds = lines.map((line) => Round.fromRealLine(line));
 
   // Result for puzzle 2
-  const realTotalScore = sumOf(...realRounds.map((round) => round.score));
+  const realTotalScore = sumOf(realRounds.map((round) => round.score));
   console.log(realTotalScore);
 });
 
