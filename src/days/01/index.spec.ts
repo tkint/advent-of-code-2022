@@ -11,24 +11,24 @@ it('Day 01', () => {
 
   // Sort baskets from the biggest to the smallest
   baskets.sort((a, b) => {
-    if (a.total() > b.total()) return -1;
-    if (a.total() < b.total()) return 1;
+    if (a.total > b.total) return -1;
+    if (a.total < b.total) return 1;
     return 0;
   });
 
   // Puzzle 1
-  const biggestBasket = baskets[0].total();
+  const biggestBasket = baskets[0].total;
   console.log(`Puzzle 1 : ${biggestBasket}`);
 
   // Puzzle 2
-  const topThreeTotal = sumOf(baskets[0].total(), baskets[1].total(), baskets[2].total());
+  const topThreeTotal = sumOf(baskets[0].total, baskets[1].total, baskets[2].total);
   console.log(`Puzzle 2 : ${topThreeTotal}`);
 });
 
 class Basket {
   constructor(public values: number[]) {}
 
-  total() {
+  public get total() {
     return sumOf(...this.values);
   }
 }
