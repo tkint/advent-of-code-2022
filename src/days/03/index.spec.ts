@@ -101,7 +101,7 @@ const getItemPriority = (item: string): number => {
 };
 
 class Rucksack {
-  private constructor(public items: Readonly<string[]>) {}
+  private constructor(public items: string[]) {}
 
   static fromLine(line: string): Rucksack {
     const items = line.split('');
@@ -132,7 +132,7 @@ class Rucksack {
 }
 
 class Group {
-  constructor(private rucksacks: Readonly<Rucksack[]>) {}
+  constructor(private rucksacks: Rucksack[]) {}
 
   get groupItems(): string[] {
     return uniqueValues(this.rucksacks.flatMap(({ items }) => items));
