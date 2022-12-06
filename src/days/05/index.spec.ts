@@ -1,6 +1,5 @@
 import os from 'os';
 import { getInput } from '../../utils/files';
-import { rangeOf } from '../../utils/number';
 
 it('Day 05', () => {
   const input = getInput();
