@@ -1,7 +1,6 @@
 import os from 'os';
-import { uniqueValues } from '../../utils/arrays';
+import { add, distinct } from '../../utils/arrays';
 import { getInput } from '../../utils/files';
-import { sumOf } from '../../utils/number';
 
 it('Day 03', () => {
   const input = getInput();
@@ -11,10 +10,10 @@ it('Day 03', () => {
   const rucksacks = lines.map((line) => Rucksack.fromLine(line));
 
   // Result for puzzle 1
-  const totalSharedItemsPriorities = sumOf(
+  const totalSharedItemsPriorities = add(
     rucksacks.map(({ sharedItems }) => {
       const sharedItemsPriorities = sharedItems.map((item) => getItemPriority(item));
-      return sumOf(sharedItemsPriorities);
+      return add(sharedItemsPriorities);
     }),
   );
   console.log(totalSharedItemsPriorities);
@@ -24,7 +23,7 @@ it('Day 03', () => {
   const groups = getGroups(rucksacks);
 
   // Result for puzzle 2
-  const totalBadgePriorities = sumOf(groups.map(({ badge }) => getItemPriority(badge)));
+  const totalBadgePriorities = add(groups.map(({ badge }) => getItemPriority(badge)));
   console.log(totalBadgePriorities);
 });
 
@@ -109,7 +108,7 @@ class Rucksack {
   }
 
   get uniqueItems(): string[] {
-    return uniqueValues(this.items);
+    return distinct(this.items);
   }
 
   get middle(): number {
@@ -125,7 +124,7 @@ class Rucksack {
   }
 
   get sharedItems(): string[] {
-    return uniqueValues(
+    return distinct(
       this.uniqueItems.filter((item) => this.firstCompartment.includes(item) && this.secondCompartment.includes(item)),
     );
   }
@@ -135,7 +134,7 @@ class Group {
   constructor(private rucksacks: Rucksack[]) {}
 
   get groupItems(): string[] {
-    return uniqueValues(this.rucksacks.flatMap(({ items }) => items));
+    return distinct(this.rucksacks.flatMap(({ items }) => items));
   }
 
   get badge(): string {

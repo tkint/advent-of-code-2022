@@ -1,9 +1,10 @@
 /**
- * Return the sum of passed numbers
+ * Return an array of numbers between the start and the end
+ * Includes both the start and the end
+ * @param start
+ * @param end
  */
-export const sumOf = (values: number[]): number => values.reduce((total, value) => total + value, 0);
-
-export const rangeOf = (start: number, end: number): number[] => {
+export const rangeBetween = (start: number, end: number): number[] => {
   const values: number[] = [];
   for (let i = start; i <= end; i++) {
     values.push(i);

@@ -1,6 +1,6 @@
 import os from 'os';
+import { add } from '../../utils/arrays';
 import { getInput } from '../../utils/files';
-import { sumOf } from '../../utils/number';
 
 it('Day 01', () => {
   const input = getInput();
@@ -21,7 +21,7 @@ it('Day 01', () => {
   console.log(`Puzzle 1 : ${biggestBasket}`);
 
   // Puzzle 2
-  const topThreeTotal = sumOf([baskets[0].total, baskets[1].total, baskets[2].total]);
+  const topThreeTotal = add([baskets[0].total, baskets[1].total, baskets[2].total]);
   console.log(`Puzzle 2 : ${topThreeTotal}`);
 });
 
@@ -29,7 +29,7 @@ class Basket {
   constructor(public values: number[]) {}
 
   public get total() {
-    return sumOf(this.values);
+    return add(this.values);
   }
 }
 

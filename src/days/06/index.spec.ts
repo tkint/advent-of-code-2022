@@ -1,5 +1,5 @@
 import os from 'os';
-import { uniqueValues } from '../../utils/arrays';
+import { distinct } from '../../utils/arrays';
 import { getInput } from '../../utils/files';
 
 it('Day 06', () => {
@@ -35,7 +35,7 @@ const getMarker = (buffer: string, size: number): Marker => {
   let i = 0;
   const marker: string[] = [];
   while (i < buffer.length) {
-    if (marker.length === size && uniqueValues(marker).length === size) {
+    if (marker.length === size && distinct(marker).length === size) {
       break;
     }
     marker.push(buffer[i]);

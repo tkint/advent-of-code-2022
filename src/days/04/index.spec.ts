@@ -1,6 +1,7 @@
 import os from 'os';
+import { countWith } from '../../utils/arrays';
 import { getInput } from '../../utils/files';
-import { rangeOf } from '../../utils/number';
+import { rangeBetween } from '../../utils/number';
 
 it('Day 04', () => {
   const input = getInput();
@@ -10,17 +11,11 @@ it('Day 04', () => {
   const pairs = lines.map((line) => Pair.fromLine(line));
 
   // Result for puzzle 1
-  const totalDuplicates = pairs.reduce((total, pair) => {
-    if (pair.duplicate) return total + 1;
-    return total;
-  }, 0);
+  const totalDuplicates = countWith(pairs, (pair) => pair.duplicate);
   console.log(totalDuplicates);
 
   // Result for puzzle 2
-  const totalOverlaps = pairs.reduce((total, pair) => {
-    if (pair.overlap) return total + 1;
-    return total;
-  }, 0);
+  const totalOverlaps = countWith(pairs, (pair) => pair.overlap);
   console.log(totalOverlaps);
 });
 
@@ -33,7 +28,7 @@ class Assignment {
   }
 
   get sections(): number[] {
-    return rangeOf(this.start, this.end);
+    return rangeBetween(this.start, this.end);
   }
 
   fullyContains(other: Assignment): boolean {
