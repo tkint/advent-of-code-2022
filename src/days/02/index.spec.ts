@@ -1,5 +1,5 @@
 import os from 'os';
-import { add } from '../../utils/arrays';
+import { sum } from '../../utils/arrays';
 import { getInput } from '../../utils/files';
 
 it('Day 02', () => {
@@ -11,7 +11,7 @@ it('Day 02', () => {
   const guessingRounds = lines.map((line) => Round.fromGuessingLine(line));
 
   // Result for puzzle 1
-  const guessingTotalScore = add(guessingRounds.map((round) => round.score));
+  const guessingTotalScore = sum(guessingRounds.map((round) => round.score));
   console.log(guessingTotalScore);
 
   // Puzzle 2
@@ -19,7 +19,7 @@ it('Day 02', () => {
   const realRounds = lines.map((line) => Round.fromRealLine(line));
 
   // Result for puzzle 2
-  const realTotalScore = add(realRounds.map((round) => round.score));
+  const realTotalScore = sum(realRounds.map((round) => round.score));
   console.log(realTotalScore);
 });
 

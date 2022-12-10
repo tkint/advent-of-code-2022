@@ -5,7 +5,8 @@
 export const distinct = <T>(array: Readonly<T[]>): T[] => [...new Set(array)];
 
 /**
- * Return an array without duplicates
+ * Return an array without duplicates using a callback function to detect them.
+ * Useful for array of objects
  * @param array The subject
  */
 export const distinctWith = <T>(array: Readonly<T[]>, predicate: (item: T) => string): T[] => {
@@ -26,7 +27,7 @@ export const distinctWith = <T>(array: Readonly<T[]>, predicate: (item: T) => st
  * @param array The subject
  * @param predicate The method calls the predicate function one time for each element in the array.
  */
-export const countWith = <T>(array: Readonly<T[]>, predicate: (item: T) => boolean) =>
+export const countWith = <T>(array: Readonly<T[]>, predicate: (item: T) => boolean): number =>
   array.reduce((total, item) => (predicate(item) ? total + 1 : total), 0);
 
 /**
@@ -41,7 +42,7 @@ export const maxWith = <T>(array: Readonly<T[]>, predicate: (item: T) => number)
  * Return the sum of every elements in an array
  * @param array The subject
  */
-export const add = (values: Readonly<number[]>): number => values.reduce((total, value) => total + value, 0);
+export const sum = (values: Readonly<number[]>): number => values.reduce((total, value) => total + value, 0);
 
 /**
  * Return the product of every elements in an array

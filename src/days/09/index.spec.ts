@@ -1,7 +1,6 @@
 import os from 'os';
-import { countWith, distinctWith, maxWith } from '../../utils/arrays';
 import { getInput } from '../../utils/files';
-import { rangeBetween, repeat } from '../../utils/number';
+import { repeat } from '../../utils/number';
 
 it('Day 09', () => {
   const input = getInput();

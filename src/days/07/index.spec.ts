@@ -1,5 +1,5 @@
 import os from 'os';
-import { add } from '../../utils/arrays';
+import { sum } from '../../utils/arrays';
 import { getInput } from '../../utils/files';
 
 it('Day 07', () => {
@@ -14,7 +14,7 @@ it('Day 07', () => {
   const smallDirectories = fileSystem.listDirectories((dir) => dir.size < 100000);
 
   // Result for puzzle 1
-  const sizeOfSmallDirectories = add(smallDirectories.map((d) => d.size));
+  const sizeOfSmallDirectories = sum(smallDirectories.map((d) => d.size));
   console.log(sizeOfSmallDirectories);
 
   // Puzzle 2
@@ -41,7 +41,7 @@ class Directory implements File {
   constructor(public name: string, public parent?: Directory, public files: File[] = []) {}
 
   get size(): number {
-    return add(this.files.map((file) => file.size));
+    return sum(this.files.map((file) => file.size));
   }
 
   get directories(): Directory[] {

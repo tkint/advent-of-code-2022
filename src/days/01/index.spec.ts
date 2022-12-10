@@ -1,5 +1,5 @@
 import os from 'os';
-import { add } from '../../utils/arrays';
+import { sum } from '../../utils/arrays';
 import { getInput } from '../../utils/files';
 
 it('Day 01', () => {
@@ -21,7 +21,7 @@ it('Day 01', () => {
   console.log(`Puzzle 1 : ${biggestBasket}`);
 
   // Puzzle 2
-  const topThreeTotal = add([baskets[0].total, baskets[1].total, baskets[2].total]);
+  const topThreeTotal = sum([baskets[0].total, baskets[1].total, baskets[2].total]);
   console.log(`Puzzle 2 : ${topThreeTotal}`);
 });
 
@@ -29,7 +29,7 @@ class Basket {
   constructor(public values: number[]) {}
 
   public get total() {
-    return add(this.values);
+    return sum(this.values);
   }
 }
 

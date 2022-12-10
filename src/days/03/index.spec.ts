@@ -1,5 +1,5 @@
 import os from 'os';
-import { add, distinct } from '../../utils/arrays';
+import { sum, distinct } from '../../utils/arrays';
 import { getInput } from '../../utils/files';
 
 it('Day 03', () => {
@@ -10,10 +10,10 @@ it('Day 03', () => {
   const rucksacks = lines.map((line) => Rucksack.fromLine(line));
 
   // Result for puzzle 1
-  const totalSharedItemsPriorities = add(
+  const totalSharedItemsPriorities = sum(
     rucksacks.map(({ sharedItems }) => {
       const sharedItemsPriorities = sharedItems.map((item) => getItemPriority(item));
-      return add(sharedItemsPriorities);
+      return sum(sharedItemsPriorities);
     }),
   );
   console.log(totalSharedItemsPriorities);
@@ -23,7 +23,7 @@ it('Day 03', () => {
   const groups = getGroups(rucksacks);
 
   // Result for puzzle 2
-  const totalBadgePriorities = add(groups.map(({ badge }) => getItemPriority(badge)));
+  const totalBadgePriorities = sum(groups.map(({ badge }) => getItemPriority(badge)));
   console.log(totalBadgePriorities);
 });
 
