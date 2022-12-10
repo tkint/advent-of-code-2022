@@ -5,6 +5,23 @@
 export const distinct = <T>(array: Readonly<T[]>): T[] => [...new Set(array)];
 
 /**
+ * Return an array without duplicates
+ * @param array The subject
+ */
+export const distinctWith = <T>(array: Readonly<T[]>, predicate: (item: T) => string): T[] => {
+  const uniqueValues = new Set<string>();
+  const items: T[] = [];
+  array.forEach((item) => {
+    const value = predicate(item);
+    if (!uniqueValues.has(value)) {
+      uniqueValues.add(value);
+      items.push(item);
+    }
+  });
+  return items;
+};
+
+/**
  * Count elements of an array that meet the condition specified in a callback function.
  * @param array The subject
  * @param predicate The method calls the predicate function one time for each element in the array.
