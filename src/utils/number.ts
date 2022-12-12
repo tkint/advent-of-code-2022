@@ -25,3 +25,21 @@ export const repeat = (times: number): number[] => {
   }
   return values;
 };
+
+export const compareNumber = (a: number, b: number): number => a - b;
+
+/**
+ * Find the greatest common divisor of two numbers
+ * @param a
+ * @param b
+ * @returns
+ */
+export const gcdOf = (a: number, b: number): number => (a ? gcdOf(b % a, a) : b);
+
+/**
+ * Find the least common multiple of two numbers
+ * @param a
+ * @param b
+ * @returns
+ */
+export const lcmOf = (a: number, b: number): number => (a * b) / gcdOf(a, b);

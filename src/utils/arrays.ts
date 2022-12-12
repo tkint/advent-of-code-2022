@@ -1,3 +1,5 @@
+import { compareNumber } from './number';
+
 /**
  * Return an array without duplicates
  * @param array The subject

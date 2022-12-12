@@ -6,6 +6,7 @@ it('Day 10', () => {
   const input = getInput();
   const lines = input.split(os.EOL);
 
+  // Get CPU from lines
   const cpu = CPU.fromLines(lines);
 
   // Puzzle 1

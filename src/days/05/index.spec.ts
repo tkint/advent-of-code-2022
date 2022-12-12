@@ -46,7 +46,7 @@ class Move {
  *   if it is a move, register it
  *   else, register the crate into the correct stack
  *
- * For the stacks, because we are reading lines and conveting it into columns,
+ * For the stacks, because we are reading lines and converting them into columns,
  * we use a `stackId` to know on which stack we have to put the crate.
  * A loop is processing a line, assuming every 4 characters is a crate or a blank space
  *
@@ -69,9 +69,7 @@ const getStacksAndMoves = (lines: string[]): { stacks: Stacks; moves: Move[] } =
         const crate = line.slice(j, j + 4);
         if (crate.trim()) {
           const crateId = crate.charAt(1);
-          if (!stacks[stackId]) {
-            stacks[stackId] = [];
-          }
+          if (!stacks[stackId]) stacks[stackId] = [];
           stacks[stackId].push(crateId);
         }
         stackId++;
