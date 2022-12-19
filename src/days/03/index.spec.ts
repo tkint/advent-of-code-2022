@@ -1,5 +1,6 @@
 import os from 'os';
 import { sum, distinct } from '../../utils/arrays';
+import { ALPHABET_LOWER, ALPHABET_UPPER } from '../../utils/constants';
 import { getInput } from '../../utils/files';
 
 it('Day 03', () => {
@@ -28,60 +29,7 @@ it('Day 03', () => {
 });
 
 // Dictionnary of possible items in rucksacks
-const possibleItems = [
-  'a',
-  'b',
-  'c',
-  'd',
-  'e',
-  'f',
-  'g',
-  'h',
-  'i',
-  'j',
-  'k',
-  'l',
-  'm',
-  'n',
-  'o',
-  'p',
-  'q',
-  'r',
-  's',
-  't',
-  'u',
-  'v',
-  'w',
-  'x',
-  'y',
-  'z',
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'X',
-  'Y',
-  'Z',
-];
+const possibleItems = [...ALPHABET_LOWER, ...ALPHABET_UPPER];
 
 /**
  * Get an item priority

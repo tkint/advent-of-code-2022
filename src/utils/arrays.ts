@@ -1,5 +1,3 @@
-import { compareNumber } from './number';
-
 /**
  * Return an array without duplicates
  * @param array The subject
@@ -39,6 +37,14 @@ export const countWith = <T>(array: Readonly<T[]>, predicate: (item: T) => boole
  */
 export const maxWith = <T>(array: Readonly<T[]>, predicate: (item: T) => number) =>
   array.reduce((previous, current) => (predicate(current) > predicate(previous) ? current : previous));
+
+/**
+ * Return the element of an array that returns the smallest number when passed to a callback function.
+ * @param array The subject
+ * @param predicate The method calls the predicate function one time for each element in the array.
+ */
+export const minWith = <T>(array: Readonly<T[]>, predicate: (item: T) => number) =>
+  array.reduce((previous, current) => (predicate(current) < predicate(previous) ? current : previous));
 
 /**
  * Return the sum of every elements in an array
