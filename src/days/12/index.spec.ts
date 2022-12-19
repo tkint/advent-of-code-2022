@@ -3,7 +3,7 @@ import { distinctWith, maxWith, minWith } from '../../utils/arrays';
 import { ALPHABET_LOWER, ALPHABET_UPPER } from '../../utils/constants';
 import { getInput } from '../../utils/files';
 
-it('Day 12', () => {
+it.skip('Day 12', () => {
   const input = getInput();
   const lines = input.split(os.EOL);
 
